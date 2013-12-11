@@ -196,6 +196,8 @@ GameObject:
   - 50: {fileID: 605265282}
   - 61: {fileID: 605265281}
   - 114: {fileID: 605265283}
+  - 114: {fileID: 605265285}
+  - 114: {fileID: 605265284}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -331,6 +333,35 @@ MonoBehaviour:
   targetResourceType: 0
   thresholdValue: 1
   thresholdType: 1
+--- !u!114 &605265284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 605265274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2965b14946780444b45f6ebe4927b79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetFaction: 0
+  selfResourceType: 1
+  changeAmount: 1
+--- !u!114 &605265285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 605265274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a516a8edd6607b4782dedad1549e7bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceType: 1
+  value: 0
+  minValue: 0
+  maxValue: 2147483647
 --- !u!1 &618849920
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,7 +552,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1470763607}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.00445366, y: 5.45908213, z: 0}
+  m_LocalPosition: {x: -1.94655359, y: 4.06948519, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1186052147}
@@ -599,7 +630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceType: 0
-  value: 1
+  value: 10
   minValue: 0
   maxValue: 2147483647
 --- !u!61 &1470763614
