@@ -5,7 +5,7 @@ using System.Collections;
 /// NPC auto-firing
 /// currently fixed rate
 /// </summary>
-public class NPCShootInDirectionCooldown : ShootInDirectionCooldown {
+public class NPCShootInDirectionCooldown : ShootInDirectionCooldown, IShoot {
 
     protected void Update() {
         UpdateCD();

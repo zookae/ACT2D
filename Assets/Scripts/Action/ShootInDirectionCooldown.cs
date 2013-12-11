@@ -5,7 +5,7 @@ using System.Collections;
 /// shoot a bullet labeled with your own state
 /// </summary>
 [RequireComponent(typeof(FactionState))]
-public class ShootInDirectionCooldown : ActionCooldown {
+public class ShootInDirectionCooldown : ActionCooldown, IShoot {
 
     /// <summary>
     /// prefab for object to shoot
@@ -36,12 +36,12 @@ public class ShootInDirectionCooldown : ActionCooldown {
         shoot |= Input.GetButtonDown("Jump"); // default spacebar
 
         if (shoot) {
-            Shoot(myFaction.faction);
+            Shoot(myFaction.faction); // fire bullet
         }
 	}
 
 
-    public void Shoot(Faction firingFaction) {
+    public Transform Shoot(Faction firingFaction) {
         // NOTE: only allows 1-v-many collision mappings
         // TODO: bullet is assigned single faction (could easily extend...)
         if (OffCD) {
@@ -64,6 +64,9 @@ public class ShootInDirectionCooldown : ActionCooldown {
             if (bulletFaction != null) {
                 bulletFaction.faction = firingFaction;
             }
+
+            return bullet;
         }
+        return null;
     }
 }
