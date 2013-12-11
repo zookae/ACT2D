@@ -17,7 +17,7 @@ GameObject:
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400008}
   m_Layer: 0
-  m_Name: bullet_player
+  m_Name: bullet_enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,8 +58,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: .100000001, y: .100000001}
-  m_Center: {x: .00999999978, y: -.00999999978}
+  m_Size: {x: .0399999991, y: .159999996}
+  m_Center: {x: 0, y: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c5de399d5b8ed4d98d40a63f666e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faction: 0
+  faction: 1
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a999fc37ec83849a3d6abeee3eac40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetFaction: 1
+  targetFaction: 0
   targetResource: 0
   changeAmount: -1
 --- !u!114 &11400008
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bfedc99552db4b48a8170a2259daf8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetFaction: 1
+  targetFaction: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -144,7 +144,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: 5af063cebb94d4440ad634d7bc49403f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 24d3b49199a481c43ab23e16d01c1687, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
