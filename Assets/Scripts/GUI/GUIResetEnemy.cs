@@ -29,6 +29,7 @@ public class GUIResetEnemy : MonoBehaviour {
             //  so we make the general scripts for the level share a parent
             //  then have the parent send the message to share...
             transform.parent.BroadcastMessage("LoadComponents"); 
+            // TODO: alternative version where enemies are kept in a queue and no destruction occurs
         }
     }
 

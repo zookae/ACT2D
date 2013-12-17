@@ -109,6 +109,14 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 11b4f5d19ce0bf94899031274ca3c6da, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 11b4f5d19ce0bf94899031274ca3c6da, type: 2}
+      propertyPath: moveSpeed.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11b4f5d19ce0bf94899031274ca3c6da, type: 2}
   m_RootGameObject: {fileID: 605265274}
@@ -313,6 +321,7 @@ GameObject:
   - 114: {fileID: 605265283}
   - 114: {fileID: 605265285}
   - 114: {fileID: 605265284}
+  - 114: {fileID: 605265286}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -367,7 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2339e77729d1f408ce1ca1cbfbffad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: {x: 10, y: 10}
+  moveSpeed: {x: 10, y: 0}
 --- !u!114 &605265278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,6 +496,24 @@ MonoBehaviour:
   value: 0
   minValue: 0
   maxValue: 2147483647
+--- !u!114 &605265286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 605265274}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7959fe1a1c1efcd4f8f6bde9df975655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: {x: 1, y: 1}
+  positions:
+  - {x: 1, y: 1}
+  - {x: -1, y: -1}
+  currentPosition: 0
+  targetPosition: {x: 0, y: 0}
+  initPosition: {x: 0, y: 0}
 --- !u!1 &618849920
 GameObject:
   m_ObjectHideFlags: 0

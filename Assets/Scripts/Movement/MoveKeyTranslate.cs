@@ -20,5 +20,4 @@ public class MoveKeyTranslate : MonoBehaviour {
         movement *= Time.deltaTime;
         transform.Translate(movement);
     }
-	
 }
