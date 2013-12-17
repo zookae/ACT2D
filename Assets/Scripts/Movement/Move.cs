@@ -3,6 +3,9 @@ using System.Collections;
 
 public class Move : MonoBehaviour {
 
+    /// <summary>
+    /// speed to move
+    /// </summary>
     public Vector2 moveSpeed;
 
     /// <summary>

@@ -10,13 +10,14 @@ GameObject:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
   - 114: {fileID: 11400002}
-  - 114: {fileID: 11400000}
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400004}
   - 50: {fileID: 5000000}
   - 61: {fileID: 6100000}
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400010}
+  - 114: {fileID: 11400000}
+  - 114: {fileID: 11400012}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Enemy
@@ -67,7 +68,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf03c2e1d14dfda43bbee3d8aa4e8dfd, type: 3}
   m_Name: 
@@ -147,6 +148,22 @@ MonoBehaviour:
   currentPosition: 0
   targetPosition: {x: 0, y: 0}
   initPosition: {x: 0, y: 0}
+--- !u!114 &11400012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa6a7852a6b92c04c84a2b1d379034ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 1
+  shotPrefab: {fileID: 400000, guid: e3871d1748bd91a40a846f7038391280, type: 2}
+  shotSpeed: {x: 3, y: 3}
+  shotDirection: {x: 0, y: 0}
+  shotTarget: {fileID: 400000, guid: 11b4f5d19ce0bf94899031274ca3c6da, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

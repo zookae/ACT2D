@@ -29,7 +29,7 @@ public class ComponentAdd : MonoBehaviour {
             selStrings[i] = selBehaviors[i].ToString();
         }
 
-        GameObject[] objs = GameObject.FindGameObjectsWithTag(entity);
+        //GameObject[] objs = GameObject.FindGameObjectsWithTag(entity);
         targetObjects.AddRange(GameObject.FindGameObjectsWithTag(entity));
 	}
 

@@ -1,12 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MoveInDirection : MonoBehaviour {
-
-    /// <summary>
-    /// speed of movement
-    /// </summary>
-    public Vector2 moveSpeed = new Vector2(20, 20);
+public class MoveInDirection : Move {
 
     /// <summary>
     /// direction of movement

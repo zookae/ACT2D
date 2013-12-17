@@ -29,7 +29,7 @@ public class PatrolRelative : Move {
 	// Update is called once per frame
 	void Update () {
         if (Vector2.Distance((Vector2)transform.position, targetPosition) < minDistance) {
-            if (currentPosition < positions.Length) {
+            if (currentPosition+1 < positions.Length) {
                 // move to next location
                 currentPosition++;
                 targetPosition = (Vector2)transform.position + positions[currentPosition];

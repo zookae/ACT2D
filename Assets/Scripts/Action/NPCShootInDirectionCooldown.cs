@@ -5,12 +5,25 @@ using System.Collections;
 /// NPC auto-firing
 /// currently fixed rate
 /// </summary>
-public class NPCShootInDirectionCooldown : ShootInDirectionCooldown {
+public class NPCShootInDirectionCooldown : ShootCooldown {
+
+    protected FactionState myFaction;
+
+    void Awake() {
+        myFaction = gameObject.GetComponent<FactionState>();
+    }
+	
 
     protected void Update() {
         UpdateCD();
 
-        // just try to shoot, ignore inputs
-        Fire(myFaction.faction);
+        if (OffCD) {
+            Transform bullet = Fire(myFaction.faction);
+            MoveInDirection move = bullet.gameObject.AddComponent<MoveInDirection>();
+            if (move != null) {
+                move.moveSpeed = shotSpeed;
+                move.moveDirection = shotDirection;
+            }
+        }
 	}
 }
