@@ -40,19 +40,14 @@ public class ParameterSlider : MonoBehaviour {
     internal void SetParameter(ParamType paramtype, MonoBehaviour script, float newval) {
         switch (paramtype) {
             case ParamType.BULLET_SPEED:
-                ((Shoot)script).bulletSpeed = newval;
+                ((Shoot)script).shotSpeed.x = newval;
+                ((Shoot)script).shotSpeed.y = newval;
                 break;
             case ParamType.BULLET_SIZE:
-                ((Shoot)script).spawn.transform.localScale = new Vector3(newval, newval);
+                ((Shoot)script).shotPrefab.transform.localScale = new Vector3(newval, newval);
                 break;
             case ParamType.FIRERATE:
-                ((Shoot)script).gameObject.GetComponent<Shoot>().frequency = newval;
-                break;
-            case ParamType.MOVE_FORCE:
-                ((MoveByKeyForce)script).force = newval;
-                break;
-            case ParamType.MOVE_DRAG:
-                ((MoveByKeyForce)script).drag = newval;
+                ((Shoot)script).gameObject.GetComponent<ActionCooldown>().cooldown = newval;
                 break;
         }
     }

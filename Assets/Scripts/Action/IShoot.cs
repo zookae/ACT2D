@@ -3,5 +3,5 @@ using System.Collections;
 
 public interface IShoot {
 
-    Transform Shoot(Faction faction);
+    Transform Fire(Faction faction);
 }

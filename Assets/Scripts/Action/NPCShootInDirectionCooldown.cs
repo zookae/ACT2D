@@ -5,12 +5,12 @@ using System.Collections;
 /// NPC auto-firing
 /// currently fixed rate
 /// </summary>
-public class NPCShootInDirectionCooldown : ShootInDirectionCooldown, IShoot {
+public class NPCShootInDirectionCooldown : ShootInDirectionCooldown {
 
     protected void Update() {
         UpdateCD();
 
         // just try to shoot, ignore inputs
-        Shoot(myFaction.faction);
+        Fire(myFaction.faction);
 	}
 }

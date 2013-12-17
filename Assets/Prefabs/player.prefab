@@ -19,7 +19,7 @@ GameObject:
   - 114: {fileID: 11400010}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,10 +84,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14c9d3bd6813024cb5f6531e0da4b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0
-  bulletPrefab: {fileID: 400000, guid: e6cb93854e59fd841ad83ec4cfa42135, type: 2}
-  shootDirection: {x: 0, y: 1}
-  shootSpeed: {x: 15, y: 15}
+  cooldown: .100000001
+  shotPrefab: {fileID: 400000, guid: e6cb93854e59fd841ad83ec4cfa42135, type: 2}
+  shotSpeed: {x: 0, y: 15}
+  shotDirection: {x: 0, y: 1}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

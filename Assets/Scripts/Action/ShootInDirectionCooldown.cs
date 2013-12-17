@@ -5,22 +5,7 @@ using System.Collections;
 /// shoot a bullet labeled with your own state
 /// </summary>
 [RequireComponent(typeof(FactionState))]
-public class ShootInDirectionCooldown : ActionCooldown, IShoot {
-
-    /// <summary>
-    /// prefab for object to shoot
-    /// </summary>
-    public Transform bulletPrefab;
-
-    /// <summary>
-    /// direction fired shot should travel relative to transform
-    /// </summary>
-    public Vector2 shootDirection;
-
-    /// <summary>
-    /// speed shot should travel
-    /// </summary>
-    public Vector2 shootSpeed;
+public class ShootInDirectionCooldown : Shoot {
 
     protected FactionState myFaction;
 
@@ -36,27 +21,27 @@ public class ShootInDirectionCooldown : ActionCooldown, IShoot {
         shoot |= Input.GetButtonDown("Jump"); // default spacebar
 
         if (shoot) {
-            Shoot(myFaction.faction); // fire bullet
+            Fire(myFaction.faction); // fire bullet
         }
 	}
 
 
-    public Transform Shoot(Faction firingFaction) {
+    public override Transform Fire(Faction firingFaction) {
         // NOTE: only allows 1-v-many collision mappings
         // TODO: bullet is assigned single faction (could easily extend...)
         if (OffCD) {
             // set cooldown before next action
             timerCD = cooldown;
 
-            Transform bullet = Instantiate(bulletPrefab) as Transform;
+            Transform bullet = Instantiate(shotPrefab) as Transform;
 
             bullet.position = transform.position;
 
             // assign movement
             MoveInDirection move = bullet.gameObject.GetComponent<MoveInDirection>();
             if (move != null) {
-                move.moveDirection = shootDirection;
-                move.moveSpeed = shootSpeed;
+                move.moveDirection = shotDirection;
+                move.moveSpeed = shotSpeed;
             }
 
             // assign faction

@@ -10,7 +10,7 @@ public class ParameterSliderSelect : ParameterSlider {
 
     public string entity = "Enemy";
 
-    private float newValue;
+    public float newValue;
     private float prevTime = 0.0f;
     private float timeDelta = 0.1f;
     public ParamType ptype;
@@ -20,31 +20,26 @@ public class ParameterSliderSelect : ParameterSlider {
     /// Needs to be in Start so every object has been added to scene already.
     /// </summary>
     void Start() {
-        newValue = (paramMax - paramMin) / 2;
-        //Debug.Log("[ParameterSliderSelect] initializing value: " + newValue);
 
-        GameObject[] objs = GameObject.FindGameObjectsWithTag(entity);
-        Debug.Log("[ParameterSliderSelect] objects found: ");
+        LoadComponents();
+        //ParamChange pch = new ParamChange(
+        //        GameState.Singleton.TimeUsed,
+        //        ptype,
+        //        entity,
+        //        newValue);
+        //GameState.Singleton.actionTrace.Add(pch);
+    }
+
+    void LoadComponents() {
+GameObject[] objs = GameObject.FindGameObjectsWithTag(entity);
+        Debug.Log("[ParameterSliderSelect] - LoadComponents - objects found: ");
         foreach (GameObject o in objs) {
-//            Debug.Log("[ParameterSliderSelect] object " + o.name);
-//            Debug.Log("[ParameterSliderSelect] parameter type " + ptype);
             if (ptype == ParamType.BULLET_SIZE ||
                 ptype == ParamType.BULLET_SPEED ||
                 ptype == ParamType.FIRERATE) {
-                    paramArray.AddRange(o.GetComponents<Shoot>());
-            } else if (
-                ptype == ParamType.MOVE_DRAG ||
-                ptype == ParamType.MOVE_FORCE) {
-                    paramArray.AddRange(o.GetComponents<MoveByKeyForce>());
+                paramArray.AddRange(o.GetComponents<Shoot>());
             }
         }
-
-        ParamChange pch = new ParamChange(
-                GameState.Singleton.TimeUsed,
-                ptype,
-                entity,
-                newValue);
-        GameState.Singleton.actionTrace.Add(pch);
     }
 
     
@@ -54,16 +49,17 @@ public class ParameterSliderSelect : ParameterSlider {
 
         // store action trace
         if (newValue != oldValue &&
-            GameState.Singleton.TimeUsed - prevTime > timeDelta) {
-            ParamChange pch = new ParamChange(
-                GameState.Singleton.TimeUsed,
-                ptype,
-                entity,
-                newValue);
-            Debug.Log(pch.ToString());
-            GameState.Singleton.actionTrace.Add(pch);
+            Time.timeSinceLevelLoad - prevTime > timeDelta) {
+            //ParamChange pch = new ParamChange(
+            //    GameState.Singleton.TimeUsed,
+            //    ptype,
+            //    entity,
+            //    newValue);
+            //Debug.Log(pch.ToString());
+            //GameState.Singleton.actionTrace.Add(pch);
 
-            prevTime = GameState.Singleton.TimeUsed;
+            Debug.Log("[ParameterSliderSelect] new parameter value: " + ptype + " - " + entity + " : " + newValue);
+            prevTime = Time.timeSinceLevelLoad;
         }
 
         foreach (MonoBehaviour p in paramArray) {
