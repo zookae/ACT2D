@@ -82,7 +82,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 11407639}
-  - 114: {fileID: 11407640}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -102,21 +101,6 @@ Transform:
   m_Children:
   - {fileID: 1657734271}
   m_Father: {fileID: 0}
---- !u!114 &11407640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 11407638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 432558dfd07f1624e83a4f0b6b51f655, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeUsed: 0
-  maxtime: 7
-  CurrentState: 0
-  score: 0
 --- !u!1 &274720564
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,6 +490,7 @@ GameObject:
   - 61: {fileID: 628600873}
   - 50: {fileID: 628600872}
   - 114: {fileID: 628600874}
+  - 114: {fileID: 628600875}
   m_Layer: 0
   m_Name: question 1
   m_TagString: Player
@@ -589,6 +574,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   returnTime: .0299999993
+--- !u!114 &628600875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: c5c7a3d19a7792549abb5d000a805833,
+    type: 2}
+  m_PrefabInternal: {fileID: 1959528302}
+  m_GameObject: {fileID: 628600869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62e4e1a2541177d4f97bfe61a4d39fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreChange: 1
 --- !u!1001 &866665583
 Prefab:
   m_ObjectHideFlags: 0
@@ -1133,6 +1131,8 @@ GameObject:
   - 4: {fileID: 1657734271}
   - 114: {fileID: 1657734272}
   - 114: {fileID: 1657734273}
+  - 114: {fileID: 1657734274}
+  - 114: {fileID: 1657734275}
   m_Layer: 0
   m_Name: GlobalState
   m_TagString: Untagged
@@ -1177,6 +1177,36 @@ MonoBehaviour:
   maxtime: 7
   CurrentState: 0
   score: 0
+--- !u!114 &1657734274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1657734270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ad8b01d0e744cf429f4581d1b33f193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  termState: 2
+  valueThreshold: 2
+  threshType: 0
+  MaxTime: 7
+--- !u!114 &1657734275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1657734270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ad8b01d0e744cf429f4581d1b33f193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  termState: 3
+  valueThreshold: 2
+  threshType: 1
+  MaxTime: 7
 --- !u!1001 &1712133849
 Prefab:
   m_ObjectHideFlags: 0
@@ -1484,6 +1514,7 @@ GameObject:
   - 61: {fileID: 2058816668}
   - 50: {fileID: 2058816667}
   - 114: {fileID: 2058816666}
+  - 114: {fileID: 2058816671}
   m_Layer: 0
   m_Name: question 2
   m_TagString: Player
@@ -1567,3 +1598,16 @@ Transform:
   m_LocalScale: {x: .800000012, y: .800000012, z: 1}
   m_Children: []
   m_Father: {fileID: 1186052147}
+--- !u!114 &2058816671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: c5c7a3d19a7792549abb5d000a805833,
+    type: 2}
+  m_PrefabInternal: {fileID: 1845967859}
+  m_GameObject: {fileID: 2058816665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62e4e1a2541177d4f97bfe61a4d39fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreChange: 1

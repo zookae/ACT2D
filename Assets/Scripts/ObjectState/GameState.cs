@@ -31,7 +31,7 @@ public class GameState : MonoBehaviour {
     /// <summary>
     /// Global score
     /// </summary>
-    public float score = 0.0f;
+    public int score = 0;
 
     /// <summary>
     /// Record of history of objects clicked on by player
@@ -88,6 +88,19 @@ public class GameState : MonoBehaviour {
         if (CurrentState != State.Paused) {
             timeUsed += Time.deltaTime;
             GameState.Singleton.timeUsed += Time.deltaTime;
+        }
+        if( timeUsed > maxtime && CurrentState == State.Running ) {
+            CurrentState = State.Paused; // pause at end of game
+        }
+    }
+
+    /// <summary>
+    /// Protected way to add score only if the game is running.
+    /// </summary>
+    /// <param name="scoreChange">Amount to change the score by</param>
+    public void AddScore( int scoreChange ) {
+        if( CurrentState == State.Running ) {
+            GameState.Singleton.score += scoreChange;
         }
     }
 }

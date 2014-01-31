@@ -12,7 +12,7 @@ public class ScoreTriggerTagOnce : MonoBehaviour {
     /// <summary>
     /// Points gained for colliding with good tag
     /// </summary>
-    public float pointChange;
+    public int pointChange;
 
     /// <summary>
     /// Starting point you must be near to reset ability to score
@@ -28,7 +28,7 @@ public class ScoreTriggerTagOnce : MonoBehaviour {
     void OnTriggerEnter(Collider col) {
 
         if (GameState.Singleton.CurrentState == State.Running && !hasScored) {
-            //Debug.Log("score : entered trigger");
+            Debug.Log("score : entered trigger");
             foreach (string t in scoreTag) {
                 if (col.CompareTag(t)) {
                     GameState.Singleton.score += pointChange;
