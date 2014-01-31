@@ -23,7 +23,7 @@ public class Terminate : MonoBehaviour {
     /// </summary>
     /// <returns></returns>
     public bool PassedTime(float timeThreshold) {
-        if (GameState.Singleton.TimeUsed >= timeThreshold) {
+        if (GameState.Singleton.timeUsed >= timeThreshold) {
             return true;
         }
         return false;

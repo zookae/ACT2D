@@ -10,8 +10,6 @@ public class ProgressBar : MonoBehaviour {
     public Color progressBarEmpty;
     public Color progressBarFull;
 
-    public float maxtime;
-
     private Vector2 position;
     private Texture2D emptyStyle;
     private Texture2D fullStyle;
@@ -40,10 +38,9 @@ public class ProgressBar : MonoBehaviour {
     }
 
     void Update() {
-        barDisplay = Time.timeSinceLevelLoad / maxtime;
-        //if (GameState.Singleton.CurrentState == State.Running) {
-        //    barDisplay = GameState.Singleton.TimeUsed / this.maxtime;
-        //}
+        if( GameState.Singleton.CurrentState == State.Running ) {
+            barDisplay = GameState.Singleton.timeUsed / GameState.Singleton.maxtime;
+        }
     }
     
 }

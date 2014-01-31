@@ -113,13 +113,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 432558dfd07f1624e83a4f0b6b51f655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeUsed: 0
-  MaxTime: 7
+  timeUsed: 0
+  maxtime: 7
   CurrentState: 0
-  ScoringMode: 0
   score: 0
-  blockTags: []
-  labelTags: []
 --- !u!1 &274720564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,13 +1173,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 432558dfd07f1624e83a4f0b6b51f655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeUsed: 0
-  MaxTime: 7
+  timeUsed: 0
+  maxtime: 7
   CurrentState: 0
-  ScoringMode: 0
   score: 0
-  blockTags: []
-  labelTags: []
 --- !u!1001 &1712133849
 Prefab:
   m_ObjectHideFlags: 0
@@ -1281,7 +1275,6 @@ MonoBehaviour:
   size: {x: 800, y: 30}
   progressBarEmpty: {r: 1, g: .673529446, b: .183823526, a: 0}
   progressBarFull: {r: 0, g: 0, b: 0, a: 0}
-  maxtime: 7
 --- !u!1001 &1845967859
 Prefab:
   m_ObjectHideFlags: 0

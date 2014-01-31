@@ -12,22 +12,16 @@ public enum State {
     Lose
 }
 
-public enum ScoringMode {
-    Collaborative,
-    Competitive,
-    Both
-}
-
 public class GameState : MonoBehaviour {
     /// <summary>
     /// The time the game has run so far.
     /// </summary>
-    public float TimeUsed = 0.0f;
+    public float timeUsed = 0.0f;
 
     /// <summary>
     /// Maximum length for the game to run.
     /// </summary>
-    public float MaxTime = 7.0f; // TODO: refactor to move this into separate termination logic
+    public float maxtime = 7.0f; // TODO: refactor to move this into separate termination logic
 
     /// <summary>
     /// Alternative states for game to be in
@@ -35,19 +29,9 @@ public class GameState : MonoBehaviour {
     public State CurrentState = State.Running;
 
     /// <summary>
-    /// 
-    /// </summary>
-    public ScoringMode ScoringMode = ScoringMode.Collaborative;
-
-    /// <summary>
     /// Global score
     /// </summary>
     public float score = 0.0f;
-
-    /// <summary>
-    /// Table of resource amounts
-    /// </summary>
-    public Dictionary<ResourceType, float> resources = new Dictionary<ResourceType, float>();
 
     /// <summary>
     /// Record of history of objects clicked on by player
@@ -69,21 +53,6 @@ public class GameState : MonoBehaviour {
     /// Retains most recent action setting
     /// </summary>
     public ParamChange currentAction;
-
-    /// <summary>
-    /// Tags this game instance uses for blocking
-    /// </summary>
-    public List<string> blockTags = new List<string>();
-
-    /// <summary>
-    /// Tags this game instance uses for labeling
-    /// </summary>
-    public List<string> labelTags = new List<string>();
-
-    /// <summary>
-    /// Track resources amounts by owner of resource
-    /// </summary>
-    //public Dictionary<int, Dictionary<Resource, float>> resourceOwners = new Dictionary<int, Dictionary<Resource, float>>();
 
 
     // cf: http://clearcutgames.net/home/?p=437
@@ -113,15 +82,12 @@ public class GameState : MonoBehaviour {
     //    get { return singleton ?? (singleton = new GameObject("GlobalState").AddComponent<GameState>()); }
     //}
 
-    // Use this for initialization
-    void Start() {
-        resources[ResourceType.Score] = 0;
-    }
 
     // Update is called once per frame
     void Update() {
         if (CurrentState != State.Paused) {
-            TimeUsed += Time.deltaTime;
+            timeUsed += Time.deltaTime;
+            GameState.Singleton.timeUsed += Time.deltaTime;
         }
     }
 }
