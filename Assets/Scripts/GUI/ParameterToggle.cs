@@ -32,13 +32,14 @@ public class ParameterToggle : MonoBehaviour {
         selGridInt = GUILayout.SelectionGrid(selGridInt, selStrings, 2);
 
         switch (selBehaviors[selGridInt]) {
-            case ShootBehavior.SHOOT_DIR_DOWN:
-                setComponents("isShootInDirectionDown");
-                break;
-            case ShootBehavior.SHOOT_TOWARD:
-                setComponents("isShootToward");
-                break;
+            //case ShootBehavior.SHOOT_DIR_DOWN:
+            //    setComponents("isShootInDirectionDown");
+            //    break;
+            //case ShootBehavior.SHOOT_TOWARD:
+            //    setComponents("isShootToward");
+            //    break;
             default:
+                Debug.LogError("WARNING BEHAVIOR NYI"); // TODO
                 break;
         }
         
@@ -74,14 +75,15 @@ public class ParameterToggle : MonoBehaviour {
     /// <param name="s"></param>
     /// <returns></returns>
     public bool isShootInDirectionDown(Shoot s) {
-        if (s is INPCShootBehavior &&
-            s is NPCShootInDirection) {
-            NPCShootInDirection s2 = (NPCShootInDirection)s;
+        //if (s is INPCShootBehavior &&
+        //    s is NPCShootInDirection) {
+        //    NPCShootInDirection s2 = (NPCShootInDirection)s;
 
-            if (s2.moveDir == MoveDirection.Down) {
-                return true;
-            }
-        }
+        //    if (s2.moveDir == MoveDirection.Down) {
+        //        return true;
+        //    }
+        //}
+        Debug.LogError("WARNING BEHAVIOR NYI"); // TODO
         return false;
     }
 
@@ -91,10 +93,11 @@ public class ParameterToggle : MonoBehaviour {
     /// <param name="s"></param>
     /// <returns></returns>
     public bool isShootToward(Shoot s) {
-        if (s is INPCShootBehavior &&
-            s is NPCShootTowardTarget) {
-            return true;
-        }
+        //if (s is INPCShootBehavior &&
+        //    s is NPCShootTowardTarget) {
+        //    return true;
+        //}
+        Debug.LogError("WARNING BEHAVIOR NYI"); // TODO
         return false;
     }
 }
