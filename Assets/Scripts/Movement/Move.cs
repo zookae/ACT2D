@@ -9,13 +9,20 @@ public class Move : MonoBehaviour {
     public Vector2 moveSpeed;
 
     /// <summary>
+    /// Whether behavior is currently running
+    /// </summary>
+    public bool isRunning = true;
+
+    /// <summary>
     /// Move toward a target position at a given speed
     /// </summary>
     /// <param name="moveTarget"></param>
     /// <param name="moveSpeed"></param>
     protected void MoveToTarget(Vector2 moveTarget, Vector2 moveSpeed) {
-        Debug.Log("[Move] MoveRelative - at: " + (Vector2)transform.position);
-        Debug.Log("[Move] MoveRelative - moving toward: " + moveTarget);
-        transform.position = Vector2.MoveTowards((Vector2)transform.position, moveTarget, moveSpeed.magnitude * Time.deltaTime);
+        if( isRunning ) {
+            //Debug.Log("[Move] MoveRelative - at: " + (Vector2)transform.position);
+            //Debug.Log("[Move] MoveRelative - moving toward: " + moveTarget);
+            transform.position = Vector2.MoveTowards((Vector2)transform.position, moveTarget, moveSpeed.magnitude * Time.deltaTime);
+        }
     }
 }

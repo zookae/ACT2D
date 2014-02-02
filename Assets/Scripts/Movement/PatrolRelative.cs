@@ -16,14 +16,19 @@ public class PatrolRelative : Move {
 
 	// Use this for initialization
 	void Start () {
+
         currentPosition = 0;
         initPosition = (Vector2)transform.position;
         if (positions.Length < 1) {
             Debug.LogError("[PatrolRelative] Start - no positions to move to!");
         }
-        else {
-            targetPosition = (Vector2)transform.position + positions[currentPosition];
+
+        // set positions to relative coordinates
+        for( int i = 0; i < positions.Length; i++ ) {
+            positions[i] = (Vector2)transform.position + positions[i];
         }
+
+        targetPosition = positions[currentPosition];
 	}
 	
 	// Update is called once per frame
@@ -32,13 +37,12 @@ public class PatrolRelative : Move {
             if (currentPosition+1 < positions.Length) {
                 // move to next location
                 currentPosition++;
-                targetPosition = (Vector2)transform.position + positions[currentPosition];
             }
             else {
-                // return to starting location
+                // return to first location
                 currentPosition = 0;
-                targetPosition = initPosition;
             }
+            targetPosition = positions[currentPosition];
         }
         MoveToTarget(targetPosition, moveSpeed);
 	}

@@ -1238,6 +1238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: {x: 20, y: 20}
+  isRunning: 1
 --- !u!50 &1400027348
 Rigidbody2D:
   m_ObjectHideFlags: 0
