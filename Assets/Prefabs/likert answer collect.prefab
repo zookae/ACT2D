@@ -13,6 +13,7 @@ GameObject:
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
+  - 114: {fileID: 11400004}
   m_Layer: 0
   m_Name: likert answer collect
   m_TagString: Enemy
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.29941344, y: -2.45969248, z: 0}
+  m_LocalPosition: {x: -4.13824368, y: -3.29852128, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,6 +83,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreChange: 1
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 126327665f38e9c49b69086754ab74ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guiText: 
+  useFontSize: 25
+  backgroundColor: {r: 1, g: 1, b: 1, a: .725490212}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -104,7 +119,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 70bf9bbe2fab08e41b685354f28682f8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .996078432, g: .996078432, b: .996078432, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

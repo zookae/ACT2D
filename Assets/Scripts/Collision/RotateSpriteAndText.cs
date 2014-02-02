@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(TextOverlay))]
-public class RotateText : MonoBehaviour {
+[RequireComponent(typeof(SpriteRenderer), typeof(TextOverlay))]
+public class RotateSpriteAndText : MonoBehaviour {
 
     /// <summary>
     /// Tag that causes sprite to change
@@ -15,41 +15,55 @@ public class RotateText : MonoBehaviour {
     /// </summary>
     public bool isRandom = false;
 
+    private SpriteRenderer mySprite;
     private TextOverlay myText;
+
+    /// <summary>
+    /// Sprite to change into
+    /// </summary>
+    public Sprite[] spriteCollection;
 
     /// <summary>
     /// Text to change into
     /// </summary>
     public string[] textCollection;
 
-    private int spriteIdx = 0;
+    public int spriteIdx = 0;
 
     void Start() {
 
-        if( isRandom ) {
-            spriteIdx = Random.Range(0, textCollection.Length - 1);
+        if( spriteCollection.Length != textCollection.Length ) {
+            Debug.LogError("two collections not equal length!");
         }
+
+        if( isRandom ) {
+            spriteIdx = Random.Range(0, spriteCollection.Length - 1);
+        }
+
+        mySprite = gameObject.GetComponent<SpriteRenderer>();
+        mySprite.sprite = spriteCollection[spriteIdx];
 
         myText = gameObject.GetComponent<TextOverlay>();
         myText.guiText = textCollection[spriteIdx];
 
-        if( textCollection.Length > 1 ) {
+        if( spriteCollection.Length > 1 ) {
             spriteIdx++;
         }
     }
 
-    void ChangeText(bool isRandom) {
+    void ChangeSpriteAndText( bool isRandom ) {
 
+        mySprite.sprite = spriteCollection[spriteIdx];
         myText.guiText = textCollection[spriteIdx];
 
         if( isRandom ) {
-            spriteIdx = Random.Range(0, textCollection.Length-1);
+            spriteIdx = Random.Range(0, spriteCollection.Length-1);
         }
         else {
             spriteIdx++;
         }
 
-        if( spriteIdx >= textCollection.Length ) {
+        if( spriteIdx >= spriteCollection.Length ) {
             spriteIdx = 0;
         }
             
@@ -63,7 +77,7 @@ public class RotateText : MonoBehaviour {
     void OnTriggerEnter2D( Collider2D col ) {
         //Debug.Log("destroy : entered trigger");
         if( col.CompareTag(changeTag) ) {
-            ChangeText(isRandom);
+            ChangeSpriteAndText(isRandom);
         }
 
     }

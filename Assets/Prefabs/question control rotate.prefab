@@ -13,9 +13,9 @@ GameObject:
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400004}
   - 114: {fileID: 11400002}
-  - 114: {fileID: 11400006}
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400006}
   m_Layer: 0
   m_Name: question control rotate
   m_TagString: Player
@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 126327665f38e9c49b69086754ab74ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guiText: test
+  guiText: 
   useFontSize: 20
   backgroundColor: {r: 1, g: 1, b: 1, a: .788235307}
 --- !u!114 &11400002
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ef73bc0cd4b0ec4e95d1927489180d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 721c0ecb3c6dfda4e8057c134dd25a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   changeTag: Enemy
@@ -114,8 +114,13 @@ MonoBehaviour:
   spriteCollection:
   - {fileID: 21300000, guid: 60f41dde3e3334a418b293df49bbbbe5, type: 3}
   - {fileID: 21300000, guid: 1601a806725f4b2428e0d30ca4fc26b4, type: 3}
-  - {fileID: 21300000, guid: 4f9fc10703d784c42a5b6a90b4f4831d, type: 3}
   - {fileID: 21300000, guid: 6aeb5d7217632154298e34836b1887e4, type: 3}
+  - {fileID: 21300000, guid: 4f9fc10703d784c42a5b6a90b4f4831d, type: 3}
+  textCollection:
+  - shrimp
+  - cabbage
+  - onion
+  - butternut squash
   spriteIdx: 0
 --- !u!114 &11400008
 MonoBehaviour:

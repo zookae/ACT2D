@@ -25,6 +25,11 @@ public class RotateSprite : MonoBehaviour {
     public int spriteIdx = 0;
 
     void Start() {
+
+        if( isRandom ) {
+            spriteIdx = Random.Range(0, spriteCollection.Length - 1);
+        }
+
         mySprite = gameObject.GetComponent<SpriteRenderer>();
         mySprite.sprite = spriteCollection[spriteIdx];
 
@@ -38,7 +43,7 @@ public class RotateSprite : MonoBehaviour {
         mySprite.sprite = spriteCollection[spriteIdx];
 
         if( isRandom ) {
-            spriteIdx = Random.Range(0, spriteCollection.Length);
+            spriteIdx = Random.Range(0, spriteCollection.Length-1);
         }
         else {
             spriteIdx++;
