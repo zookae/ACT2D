@@ -11,10 +11,13 @@ GameObject:
   - 212: {fileID: 21200000}
   - 61: {fileID: 6100000}
   - 50: {fileID: 5000000}
-  - 114: {fileID: 11400000}
+  - 114: {fileID: 11400004}
   - 114: {fileID: 11400002}
+  - 114: {fileID: 11400006}
+  - 114: {fileID: 11400008}
+  - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: question
+  m_Name: question control rotate
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +30,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.463131189, y: 1.83770692, z: 0}
+  m_LocalPosition: {x: -.463131011, y: 1.83770704, z: 0}
   m_LocalScale: {x: .800000012, y: .800000012, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -65,10 +68,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc35d28269218b4a97c65757c2e23c5, type: 3}
+  m_Script: {fileID: 11500000, guid: 126327665f38e9c49b69086754ab74ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  returnTime: .0299999993
+  guiText: test
+  useFontSize: 20
+  backgroundColor: {r: 1, g: 1, b: 1, a: .788235307}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -77,10 +82,52 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62e4e1a2541177d4f97bfe61a4d39fd7, type: 3}
+  m_Script: {fileID: 11500000, guid: c970c72a4c7f4b743ad4dbdff69de749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreChange: 1
+  destroyTag: Enemy
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea2339e77729d1f408ce1ca1cbfbffad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: {x: 20, y: 20}
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef73bc0cd4b0ec4e95d1927489180d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeTag: Enemy
+  isRandom: 1
+  spriteCollection:
+  - {fileID: 21300000, guid: 60f41dde3e3334a418b293df49bbbbe5, type: 3}
+  - {fileID: 21300000, guid: 1601a806725f4b2428e0d30ca4fc26b4, type: 3}
+  - {fileID: 21300000, guid: 4f9fc10703d784c42a5b6a90b4f4831d, type: 3}
+  - {fileID: 21300000, guid: 6aeb5d7217632154298e34836b1887e4, type: 3}
+  spriteIdx: 0
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a980e4614f8f57240bdcd6cd0aaabe6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

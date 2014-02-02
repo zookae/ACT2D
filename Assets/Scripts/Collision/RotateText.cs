@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(SpriteRenderer))]
-public class RotateSprite : MonoBehaviour {
+[RequireComponent(typeof(TextOverlay))]
+public class RotateText : MonoBehaviour {
 
     /// <summary>
     /// Tag that causes sprite to change
@@ -15,36 +15,37 @@ public class RotateSprite : MonoBehaviour {
     /// </summary>
     public bool isRandom = false;
 
-    private SpriteRenderer mySprite;
+    private TextOverlay myText;
 
     /// <summary>
-    /// Sprite to change into
+    /// Text to change into
     /// </summary>
-    public Sprite[] spriteCollection;
+    public string[] textCollection;
 
-    public int spriteIdx = 0;
+    private int spriteIdx = 0;
 
     void Start() {
-        mySprite = gameObject.GetComponent<SpriteRenderer>();
-        mySprite.sprite = spriteCollection[spriteIdx];
 
-        if( spriteCollection.Length > 1 ) {
+        myText = gameObject.GetComponent<TextOverlay>();
+        myText.guiText = textCollection[spriteIdx];
+
+        if( textCollection.Length > 1 ) {
             spriteIdx++;
         }
     }
 
-    void ChangeSprite(bool isRandom) {
+    void ChangeText(bool isRandom) {
 
-        mySprite.sprite = spriteCollection[spriteIdx];
+        myText.guiText = textCollection[spriteIdx];
 
         if( isRandom ) {
-            spriteIdx = Random.Range(0, spriteCollection.Length);
+            spriteIdx = Random.Range(0, textCollection.Length);
         }
         else {
             spriteIdx++;
         }
 
-        if( spriteIdx >= spriteCollection.Length ) {
+        if( spriteIdx >= textCollection.Length ) {
             spriteIdx = 0;
         }
             
@@ -58,7 +59,7 @@ public class RotateSprite : MonoBehaviour {
     void OnTriggerEnter2D( Collider2D col ) {
         //Debug.Log("destroy : entered trigger");
         if( col.CompareTag(changeTag) ) {
-            ChangeSprite(isRandom);
+            ChangeText(isRandom);
         }
 
     }
