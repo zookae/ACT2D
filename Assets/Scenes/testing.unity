@@ -110,6 +110,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 548806486}
   - 212: {fileID: 548806487}
+  - 114: {fileID: 548806488}
   m_Layer: 0
   m_Name: background
   m_TagString: Untagged
@@ -151,6 +152,20 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: c97d31997b9064b4e8cdfb6949cd015d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &548806488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 548806485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 126327665f38e9c49b69086754ab74ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guiText: I am a person who...
+  useFontSize: 40
+  backgroundColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!1 &566216439
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,8 +282,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 855753742}
   - 212: {fileID: 855753743}
+  - 114: {fileID: 855753746}
   - 114: {fileID: 855753744}
-  - 114: {fileID: 855753745}
   m_Layer: 0
   m_Name: testLoading
   m_TagString: Untagged
@@ -283,7 +298,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 855753741}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.51940227, y: 1.36734951, z: -12.0200195}
+  m_LocalPosition: {x: -3.51940227, y: 1.36734951, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1186052147}
@@ -318,11 +333,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 855753741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1128be8288f6a354ab3a9c773c0af780, type: 3}
+  m_Script: {fileID: 11500000, guid: 5442cfd5bd951c2418ec532ce52ae528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetSprite: 
---- !u!114 &855753745
+--- !u!114 &855753746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -330,11 +345,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 855753741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 618f108bc6b932a4b971e82df05bc639, type: 3}
+  m_Script: {fileID: 11500000, guid: 126327665f38e9c49b69086754ab74ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textDB: []
-  textFile: BFI_text_simple
+  guiText: 
+  useFontSize: 25
+  backgroundColor: {r: .992647052, g: .992647052, b: .992647052, a: 0}
 --- !u!1 &868955913
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,6 +443,7 @@ GameObject:
   - 4: {fileID: 1657734271}
   - 114: {fileID: 1657734273}
   - 114: {fileID: 1657734272}
+  - 114: {fileID: 1657734274}
   m_Layer: 0
   m_Name: GlobalState
   m_TagString: Untagged
@@ -472,6 +489,19 @@ MonoBehaviour:
   maxtime: 7
   CurrentState: 0
   score: 0
+--- !u!114 &1657734274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1657734270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618f108bc6b932a4b971e82df05bc639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textDB: []
+  textFile: BFI_text_simple
 --- !u!1 &1744455341
 GameObject:
   m_ObjectHideFlags: 0

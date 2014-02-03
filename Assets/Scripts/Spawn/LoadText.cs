@@ -36,7 +36,7 @@ public class LoadText : MonoBehaviour {
     /// <summary>
     /// Path to file containing new-line delimited strings.
     /// </summary>
-    public string textFile = "BFI_text_simple.txt";
+    public string textFile = "BFI_text_simple";
 
     
 
@@ -53,7 +53,7 @@ public class LoadText : MonoBehaviour {
     /// Retruns a random string from the database.
     /// </summary>
     /// <returns></returns>
-    public string getRandomText() {
+    public string getTextRandom() {
         return (textDB[UnityEngine.Random.Range(0, textDB.Length - 1)]);
     }
     
