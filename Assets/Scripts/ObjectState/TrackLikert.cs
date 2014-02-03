@@ -8,8 +8,9 @@ public enum LikertScale {
     v3,
     v4,
     v5,
-    v6,
-    v7
+    empty
+    //v6,
+    //v7
 }
 
 public class TrackLikert : MonoBehaviour {
