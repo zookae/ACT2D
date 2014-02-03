@@ -3,7 +3,15 @@ using System.Collections;
 
 public class LikertReplace : MonoBehaviour {
 
+    private bool isQuitting = false;
+
+    void OnApplicationQuit() {
+        isQuitting = true;
+    }
+
     void OnDestroy() {
-        LikertPool.Singleton.replace(gameObject.GetInstanceID());
+        if( !isQuitting ) {
+            LikertPool.Singleton.replace(gameObject.GetInstanceID());
+        }
     }
 }
