@@ -9,13 +9,18 @@ public class SetSprite : MonoBehaviour {
     /// </summary>
     public string targetSprite;
 
-    void Update() {
-        AssignSprite(targetSprite);
+    private SpriteRenderer mySprite;
+
+    void Awake() {
+        mySprite = gameObject.GetComponent<SpriteRenderer>();
     }
 
-    public void AssignSprite(string spriteName) {
-        SpriteRenderer mySprite = gameObject.GetComponent<SpriteRenderer>();
+    public void assignSprite(string spriteName) {
         mySprite.sprite = LoadSprites.Singleton.getSprite(spriteName);
+    }
+
+    public void assignSpriteRandom() {
+        mySprite.sprite = LoadSprites.Singleton.getSpriteRandom();
     }
 	
 }

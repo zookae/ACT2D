@@ -60,5 +60,14 @@ public class LoadSprites : MonoBehaviour {
         Sprite sprite = Singleton.spriteDB[Array.IndexOf(Singleton.spriteNames, spriteName)];
         return sprite;
     }
+
+    /// <summary>
+    /// Returns a randomly selected sprite from the database
+    /// </summary>
+    /// <returns></returns>
+    public Sprite getSpriteRandom() {
+        Sprite sprite = Singleton.spriteDB[UnityEngine.Random.Range(0, spriteDB.Length - 1)];
+        return sprite;
+    }
     
 }
