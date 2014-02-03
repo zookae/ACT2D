@@ -39,25 +39,22 @@ public class LikertPool : MonoBehaviour {
             spawnedPrefabs[spawned.GetInstanceID()] = spawned;
             numSpawned++;
         }
+
+        likertCount = new Dictionary<LikertScale, int>();
     }
     #endregion
 
     public GameObject[] binPrefabs;
     public GameObject[] collectPrefabs;
 
+    /// <summary>
+    /// Reference object in the layer to spawn objects
+    /// </summary>
     public GameObject targetLayer;
 
     public int spawnNumber = 2;
 
     private int numSpawned = 0;
-
-    void Start() {
-        foreach( GameObject spawn in spawnedPrefabs.Values ) {
-            spawn.transform.position = randomCameraPoint(); // set object position
-
-            spawn.transform.parent = targetLayer.transform.parent; // anchor to target object
-        }
-    }
 
     /// <summary>
     /// Whether spawning bins that questions are put in 
@@ -65,8 +62,47 @@ public class LikertPool : MonoBehaviour {
     /// </summary>
     public bool isBin = false;
 
-    public Dictionary<int, GameObject> spawnedPrefabs;
+    private Dictionary<int, GameObject> spawnedPrefabs;
 
+    private Dictionary<LikertScale, int> likertCount;
+
+    public void likertIncrement( LikertScale likert ) {
+        if( likertCount.ContainsKey(likert) ) {
+            likertCount[likert] = likertCount[likert] + 1;
+        }
+        else {
+            likertCount[likert] = 1;
+        }
+        Debug.Log("[LikertPool].likertIncrement() " + likert + " @ " + likertCount[likert]);
+    }
+
+    public void likertDecrement( LikertScale likert ) {
+        if( likertCount.ContainsKey(likert) ) {
+            likertCount[likert] = likertCount[likert] - 1;
+        }
+        else {
+            Debug.LogError("[LikertPool].likertDecrement() lowering count of non-existent key");
+            likertCount[likert] = 0;
+        }
+        Debug.Log("[LikertPool].likertDecrement() " + likert + " @ " + likertCount[likert]);
+    }
+
+    void Start() {
+        foreach( GameObject spawn in spawnedPrefabs.Values ) {
+            spawn.transform.position = randomCameraPoint(); // set object position
+            spawn.transform.parent = targetLayer.transform.parent; // anchor to target object
+
+            LikertScale spawnLik = spawn.gameObject.GetComponent<LikertChangeTag>().rtype;
+            if( spawnLik == null ) {
+                Debug.LogError("spawning non-likert object!");
+            }
+            else {
+                likertIncrement(spawnLik);
+            }
+        }
+    }
+
+    
     /// <summary>
     /// Spawn a random bin prefab
     /// </summary>
@@ -107,8 +143,15 @@ public class LikertPool : MonoBehaviour {
             replacement = spawnCollect();
         }
         replacement.transform.position = randomCameraPoint();
-
         replacement.transform.parent = targetLayer.transform.parent;
+
+        LikertScale spawnLik = replacement.gameObject.GetComponent<LikertChangeTag>().rtype;
+        if( spawnLik == null ) {
+            Debug.LogError("spawning non-likert object!");
+        }
+        else {
+            likertIncrement(spawnLik);
+        }
 
         Singleton.spawnedPrefabs[replacement.GetInstanceID()] = replacement;
         numSpawned++;
