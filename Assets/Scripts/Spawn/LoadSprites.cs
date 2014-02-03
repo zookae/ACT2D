@@ -29,7 +29,7 @@ public class LoadSprites : MonoBehaviour {
 
         for (int ii = 0; ii < Singleton.spriteNames.Length; ii++) {
             Singleton.spriteNames[ii] = Singleton.spriteDB[ii].name;
-            Debug.Log("[LoadSprite]: loading " + Singleton.spriteNames[ii]);
+            //Debug.Log("[LoadSprite]: loading " + Singleton.spriteNames[ii]);
         }
     }
 #endregion

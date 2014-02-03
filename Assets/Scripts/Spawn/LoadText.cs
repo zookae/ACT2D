@@ -36,7 +36,7 @@ public class LoadText : MonoBehaviour {
     /// <summary>
     /// Path to file containing new-line delimited strings.
     /// </summary>
-    public string textFile = "BFI_text_simple";
+    private string textFile = "BFI_text_simple";
 
     
 
