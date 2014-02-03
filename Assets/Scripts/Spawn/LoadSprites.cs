@@ -62,6 +62,16 @@ public class LoadSprites : MonoBehaviour {
     }
 
     /// <summary>
+    /// Returns the sprite at the given index in the database
+    /// </summary>
+    /// <param name="spriteIdx"></param>
+    /// <returns></returns>
+    public Sprite getSprite(int spriteIdx) {
+        Sprite sprite = Singleton.spriteDB[spriteIdx];
+        return sprite;
+    }
+
+    /// <summary>
     /// Returns a randomly selected sprite from the database
     /// </summary>
     /// <returns></returns>

@@ -19,6 +19,10 @@ public class SetSprite : MonoBehaviour {
         mySprite.sprite = LoadSprites.Singleton.getSprite(spriteName);
     }
 
+    public void assignSprite(int spriteIdx) {
+        mySprite.sprite = LoadSprites.Singleton.getSprite(spriteIdx);
+    }
+
     public void assignSpriteRandom() {
         mySprite.sprite = LoadSprites.Singleton.getSpriteRandom();
     }
