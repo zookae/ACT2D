@@ -32,7 +32,7 @@ public class LikertChangeTag : MonoBehaviour {
     /// </summary>
     /// <param name="col"></param>
     void OnTriggerEnter2D(Collider2D col) {
-        Debug.Log("likert toggle : entered trigger");
+        Debug.Log("[LikertChangeTag] likert toggle : entered trigger");
 
         if (col.CompareTag(targetTag)) {
             tracker.Increment(col.name, rtype);

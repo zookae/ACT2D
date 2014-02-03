@@ -19,8 +19,9 @@ public class TextOverlay : MonoBehaviour {
     public Color backgroundColor;
 
     private Vector2 textSize;
-    private Vector2 padding = new Vector2(10, 10); // padding around text
+    private Vector2 padding = new Vector2(1, 1); // padding around text
 
+    public int guiDepth = 1;
 
 
     private GUIStyle textStyle;
@@ -38,11 +39,12 @@ public class TextOverlay : MonoBehaviour {
         boxStyle = new GUIStyle(GUI.skin.box);
         boxStyle.normal.background = GUIUtils.MakeBlankTexture((int)textSize.x * 2, (int)textSize.y * 2, backgroundColor);
 
-        GUI.depth = 1;
+        GUI.depth = guiDepth;
         Vector3 pixelPosition = Camera.main.WorldToScreenPoint(this.gameObject.transform.position);
         Vector2 p = new Vector2(pixelPosition.x, Screen.height - pixelPosition.y);
         GUILayout.BeginArea(new Rect(p.x - (textSize.x / 2), p.y - (textSize.y / 2), textSize.x, textSize.y), boxStyle);
         GUILayout.Label(guiText, textStyle);
         GUILayout.EndArea();
     }
+
 }

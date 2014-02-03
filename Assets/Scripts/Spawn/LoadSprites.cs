@@ -37,7 +37,7 @@ public class LoadSprites : MonoBehaviour {
     /// <summary>
     /// Store all sprites loaded from path
     /// </summary>
-    private Sprite[] spriteDB;
+    public Sprite[] spriteDB;
 
     /// <summary>
     /// Names of sprites in the DB
