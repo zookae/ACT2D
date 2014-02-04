@@ -57,7 +57,7 @@ public class QuestionPool : MonoBehaviour {
         }
 
         foreach( GameObject spawn in spawnedPrefabs.Values ) {
-            spawn.transform.position = randomCameraPoint(); // set object position
+            spawn.transform.position = randomCameraPoint(false, spawn.transform); // set object position
             spawn.transform.parent = targetLayer.transform.parent; // anchor to target object
         }
     }
@@ -104,7 +104,7 @@ public class QuestionPool : MonoBehaviour {
 
         // TODO ensure not overlapping question
 
-        replacement.transform.position = randomCameraPoint();
+        replacement.transform.position = randomCameraPoint(false, replacement.transform);
         replacement.transform.parent = targetLayer.transform.parent;
 
         Singleton.spawnedPrefabs[replacement.GetInstanceID()] = replacement;
@@ -149,7 +149,22 @@ public class QuestionPool : MonoBehaviour {
         return new Vector3(xPoint, yPoint, zPoint);
     }
 
+    public Vector3 randomCameraPoint(bool allowOverlap, Transform spawn) {
+        if (allowOverlap) {
+            return (randomCameraPoint());
+        }
 
+        Vector3 spawnSize = spawn.renderer.bounds.size;
+        float overlapRadius = Mathf.Max(spawnSize.x, spawnSize.y);
+
+        Vector3 newPos = randomCameraPoint();
+
+        // check for any colliders overlapping w/target point
+        while (Physics2D.OverlapCircle(newPos, overlapRadius, UnityEngine.Physics2D.DefaultRaycastLayers, targetLayer.transform.position.z, targetLayer.transform.position.z) != null) {
+            newPos = randomCameraPoint();
+        }
+        return newPos;
+    }
 
     public Vector3 randomBoundsPoint(Transform bounds) {
         float leftBorder = bounds.renderer.bounds.min.x;
@@ -165,6 +180,23 @@ public class QuestionPool : MonoBehaviour {
         Debug.Log("[QuestionPool].randomBoundsPoint() made point " + temp);
 
         return new Vector3(xPoint, yPoint, zPoint);
+    }
+
+    public Vector3 randomBoundsPoint(Transform bounds, bool allowOverlap, Transform spawn) {
+        if (allowOverlap) {
+            return (randomBoundsPoint(bounds));
+        }
+
+        Vector3 spawnSize = spawn.renderer.bounds.size;
+        float overlapRadius = Mathf.Max(spawnSize.x, spawnSize.y);
+
+        Vector3 newPos = randomBoundsPoint(bounds);
+
+        // check for any colliders overlapping w/target point
+        while (Physics2D.OverlapCircle(newPos, overlapRadius, UnityEngine.Physics2D.DefaultRaycastLayers, targetLayer.transform.position.z, targetLayer.transform.position.z) != null) {
+            newPos = randomBoundsPoint(bounds);
+        }
+        return newPos;
     }
 
 
