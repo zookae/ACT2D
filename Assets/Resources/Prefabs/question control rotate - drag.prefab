@@ -11,14 +11,14 @@ GameObject:
   - 212: {fileID: 21200000}
   - 61: {fileID: 6100000}
   - 50: {fileID: 5000000}
-  - 114: {fileID: 11400004}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400000}
-  - 114: {fileID: 11400006}
+  - 114: {fileID: 11400004}
   - 114: {fileID: 11400010}
+  - 114: {fileID: 11400006}
   m_Layer: 0
-  m_Name: question control rotate
+  m_Name: question control rotate - drag
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,11 +96,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea2339e77729d1f408ce1ca1cbfbffad, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a3686a09775b754bb1aa3f5253e4159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: {x: 20, y: 20}
-  isRunning: 1
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -109,9 +107,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5442cfd5bd951c2418ec532ce52ae528, type: 3}
+  m_Script: {fileID: 11500000, guid: 30abe709b5be2d041a5e1f8c9a2adcea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeTag: Enemy
+  isRandom: 1
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,11 +131,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30abe709b5be2d041a5e1f8c9a2adcea, type: 3}
+  m_Script: {fileID: 11500000, guid: 5442cfd5bd951c2418ec532ce52ae528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTag: Enemy
-  isRandom: 1
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

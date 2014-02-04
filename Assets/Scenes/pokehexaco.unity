@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22140b17a8d6a594a8c5e21337a2c011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabName: Prefabs/question destroy
   targetLayer: {fileID: 1470994886}
   spawnNumber: 1
   questionPrefab: {fileID: 0}
