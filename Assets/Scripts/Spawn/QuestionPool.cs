@@ -6,6 +6,8 @@ using System;
 [RequireComponent(typeof(LoadSprites), typeof(LoadText))]
 public class QuestionPool : MonoBehaviour {
 
+    public string prefabName = "Prefabs/question destroy";
+
     #region singleton
     // cf: http://clearcutgames.net/home/?p=437
     // (v1) Allow manipulation in editor and prevent duplicates
@@ -24,7 +26,7 @@ public class QuestionPool : MonoBehaviour {
 
         DontDestroyOnLoad(gameObject); // ensure not destroyed b/t scenes
 
-        questionPrefab = Resources.Load<GameObject>("Prefabs/question destroy");
+        questionPrefab = Resources.Load<GameObject>(prefabName);
 
         spawnedPrefabs = new Dictionary<int, GameObject>();
         
@@ -94,7 +96,7 @@ public class QuestionPool : MonoBehaviour {
     /// Replace the given prefab by adding a new one
     /// </summary>
     /// <param name="destroyedID"></param>
-    public void replace( int destroyedID ) {
+    public GameObject replace( int destroyedID ) {
         Singleton.spawnedPrefabs.Remove(destroyedID); // remove old object
 
         GameObject replacement;
@@ -107,6 +109,8 @@ public class QuestionPool : MonoBehaviour {
 
         Singleton.spawnedPrefabs[replacement.GetInstanceID()] = replacement;
         numSpawned++;
+
+        return (replacement);
     }
 
     // ability to set spawn object position w/in camera w/o overlap

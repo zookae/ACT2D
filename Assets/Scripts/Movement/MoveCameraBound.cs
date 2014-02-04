@@ -3,7 +3,6 @@ using System.Collections;
 
 public class MoveCameraBound : MonoBehaviour {
 
-
 	void Update () {
         float dist = (transform.position - Camera.main.transform.position).z;
 
