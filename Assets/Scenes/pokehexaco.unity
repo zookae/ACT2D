@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetLayer: {fileID: 1470994886}
-  spawnNumber: 5
+  spawnNumber: 1
   questionPrefab: {fileID: 0}
   spawned: {fileID: 0}
 --- !u!114 &11407641
@@ -649,6 +649,8 @@ GameObject:
   - 114: {fileID: 637652524}
   - 114: {fileID: 637652523}
   - 114: {fileID: 637652522}
+  - 114: {fileID: 637652529}
+  - 114: {fileID: 637652528}
   m_Layer: 0
   m_Name: question destroy test
   m_TagString: Player
@@ -681,7 +683,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guiText: test me
   useFontSize: 16
-  backgroundColor: {r: .992647052, g: .992647052, b: .992647052, a: 0}
+  backgroundColor: {r: 1, g: 1, b: 1, a: .666666687}
   guiDepth: 1
 --- !u!114 &637652523
 MonoBehaviour:
@@ -761,6 +763,29 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 60f41dde3e3334a418b293df49bbbbe5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &637652528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 637652520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df43b23ba2f27443a0c034845f68861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &637652529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400006, guid: c5c7a3d19a7792549abb5d000a805833,
+    type: 2}
+  m_PrefabInternal: {fileID: 1842240072}
+  m_GameObject: {fileID: 637652520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df43b23ba2f27443a0c034845f68861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &868955913
 GameObject:
   m_ObjectHideFlags: 0

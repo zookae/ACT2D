@@ -109,7 +109,6 @@ public class QuestionPool : MonoBehaviour {
         numSpawned++;
     }
 
-
     // ability to set spawn object position w/in camera w/o overlap
     /// <summary>
     /// Pick a random point that is currently on Camera
