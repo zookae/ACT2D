@@ -113,6 +113,19 @@ public class QuestionPool : MonoBehaviour {
         return (replacement);
     }
 
+    /// <summary>
+    /// Replace the given prefab by adding a new one
+    /// </summary>
+    /// <param name="destroyedID"></param>
+    public GameObject replace(int destroyedID, Transform bounds) {
+        GameObject replacement = replace(destroyedID);
+
+        if (bounds != null) {
+            replacement.transform.position = randomBoundsPoint(bounds);
+        }
+        return (replacement);
+    }
+
     // ability to set spawn object position w/in camera w/o overlap
     /// <summary>
     /// Pick a random point that is currently on Camera
@@ -128,11 +141,30 @@ public class QuestionPool : MonoBehaviour {
 
         float xPoint = UnityEngine.Random.Range(leftBorder, rightBorder);
         float yPoint = UnityEngine.Random.Range(bottomBorder, topBorder);
+        float zPoint = targetLayer.transform.position.z;
 
-        Vector3 temp = new Vector3(xPoint, yPoint, targetLayer.transform.position.z);
+        Vector3 temp = new Vector3(xPoint, yPoint, zPoint);
         Debug.Log("[QuestionPool].randomCameraPoint() made point " + temp);
 
-        return new Vector3(xPoint, yPoint, targetLayer.transform.position.z);
+        return new Vector3(xPoint, yPoint, zPoint);
+    }
+
+
+
+    public Vector3 randomBoundsPoint(Transform bounds) {
+        float leftBorder = bounds.renderer.bounds.min.x;
+        float rightBorder = bounds.renderer.bounds.max.x;
+        float bottomBorder = bounds.renderer.bounds.min.y;
+        float topBorder = bounds.renderer.bounds.max.y;
+
+        float xPoint = UnityEngine.Random.Range(leftBorder, rightBorder);
+        float yPoint = UnityEngine.Random.Range(bottomBorder, topBorder);
+        float zPoint = bounds.transform.position.z;
+
+        Vector3 temp = new Vector3(xPoint, yPoint, zPoint);
+        Debug.Log("[QuestionPool].randomBoundsPoint() made point " + temp);
+
+        return new Vector3(xPoint, yPoint, zPoint);
     }
 
 
