@@ -116,7 +116,7 @@ MonoBehaviour:
   binPrefabs: []
   collectPrefabs: []
   targetLayer: {fileID: 1400027341}
-  spawnNumber: 8
+  spawnNumber: 7
   isBin: 0
 --- !u!1001 &477144716
 Prefab:
@@ -240,6 +240,7 @@ MonoBehaviour:
   guiText: I am someone who...
   useFontSize: 30
   backgroundColor: {r: .977941155, g: .970750391, b: .970750391, a: 0}
+  guiDepth: 1
 --- !u!1 &566216439
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,6 +480,7 @@ MonoBehaviour:
   guiText: 
   useFontSize: 20
   backgroundColor: {r: 1, g: 1, b: 1, a: .788235307}
+  guiDepth: 1
 --- !u!114 &1400027345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,6 +707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4084f2d4ed8a1943a715a402c28d6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteDB: []
   spritePath: textures
 --- !u!1 &1744455341
 GameObject:

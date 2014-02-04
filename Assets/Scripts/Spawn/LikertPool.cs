@@ -107,31 +107,11 @@ public class LikertPool : MonoBehaviour {
 
     private Dictionary<LikertScale, int> likertCount;
 
-    public void likertIncrement( LikertScale likert ) {
-        if( likertCount.ContainsKey(likert) ) {
-            likertCount[likert] = likertCount[likert] + 1;
-        }
-        else {
-            likertCount[likert] = 1;
-        }
-        Debug.Log("[LikertPool].likertIncrement() " + likert + " @ " + likertCount[likert]);
-    }
-
-    public void likertDecrement( LikertScale likert ) {
-        if( likertCount.ContainsKey(likert) ) {
-            likertCount[likert] = likertCount[likert] - 1;
-        }
-        else {
-            Debug.LogError("[LikertPool].likertDecrement() lowering count of non-existent key");
-            likertCount[likert] = 0;
-        }
-        Debug.Log("[LikertPool].likertDecrement() " + likert + " @ " + likertCount[likert]);
-    }
-
 
     void Start() {
         foreach( GameObject spawn in spawnedPrefabs.Values ) {
-            spawn.transform.position = randomCameraPoint(); // set object position
+            
+            spawn.transform.position = randomCameraPoint(false, spawn.transform); // set object position
             spawn.transform.parent = targetLayer.transform.parent; // anchor to target object
 
             LikertChangeTag spawnLik = spawn.gameObject.GetComponent<LikertChangeTag>();
@@ -219,7 +199,8 @@ public class LikertPool : MonoBehaviour {
             }
         }
 
-        replacement.transform.position = randomCameraPoint();
+
+        replacement.transform.position = randomCameraPoint(false, replacement.transform); // set object position
         replacement.transform.parent = targetLayer.transform.parent;
 
         LikertChangeTag spawnLik = replacement.gameObject.GetComponent<LikertChangeTag>();
@@ -232,6 +213,23 @@ public class LikertPool : MonoBehaviour {
 
         Singleton.spawnedPrefabs[replacement.GetInstanceID()] = replacement;
         numSpawned++;
+    }
+
+    public Vector3 randomCameraPoint(bool allowOverlap, Transform spawn) {
+        if (allowOverlap) {
+            return (randomCameraPoint());
+        }
+
+        Vector3 spawnSize = spawn.renderer.bounds.size;
+        float overlapRadius = Mathf.Max(spawnSize.x, spawnSize.y);
+
+        Vector3 newPos = randomCameraPoint();
+
+        // check for any colliders overlapping w/target point
+        while (Physics2D.OverlapCircle(newPos, overlapRadius, UnityEngine.Physics2D.DefaultRaycastLayers, targetLayer.transform.position.z, targetLayer.transform.position.z) != null) {
+            newPos = randomCameraPoint();
+        }
+        return newPos;
     }
 
 
@@ -284,4 +282,25 @@ public class LikertPool : MonoBehaviour {
         return LikertScale.empty;
     }
 
+
+    public void likertIncrement(LikertScale likert) {
+        if (likertCount.ContainsKey(likert)) {
+            likertCount[likert] = likertCount[likert] + 1;
+        }
+        else {
+            likertCount[likert] = 1;
+        }
+        Debug.Log("[LikertPool].likertIncrement() " + likert + " @ " + likertCount[likert]);
+    }
+
+    public void likertDecrement(LikertScale likert) {
+        if (likertCount.ContainsKey(likert)) {
+            likertCount[likert] = likertCount[likert] - 1;
+        }
+        else {
+            Debug.LogError("[LikertPool].likertDecrement() lowering count of non-existent key");
+            likertCount[likert] = 0;
+        }
+        Debug.Log("[LikertPool].likertDecrement() " + likert + " @ " + likertCount[likert]);
+    }
 }
