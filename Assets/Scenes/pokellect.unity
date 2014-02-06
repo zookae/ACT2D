@@ -169,6 +169,14 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: d628bd9626342ec488a42b839a0a51d4, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: d628bd9626342ec488a42b839a0a51d4, type: 2}
+      propertyPath: guiDepth
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400006, guid: d628bd9626342ec488a42b839a0a51d4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d628bd9626342ec488a42b839a0a51d4, type: 2}
@@ -445,8 +453,8 @@ GameObject:
   - 114: {fileID: 1400027346}
   - 114: {fileID: 1400027345}
   - 114: {fileID: 1400027344}
+  - 114: {fileID: 1400027343}
   - 114: {fileID: 1400027352}
-  - 114: {fileID: 1400027351}
   m_Layer: 0
   m_Name: question control rotate
   m_TagString: Player
@@ -465,6 +473,20 @@ Transform:
   m_LocalScale: {x: .800000012, y: .800000012, z: 1}
   m_Children: []
   m_Father: {fileID: 1186052147}
+--- !u!114 &1400027343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400010, guid: d628bd9626342ec488a42b839a0a51d4,
+    type: 2}
+  m_PrefabInternal: {fileID: 477144716}
+  m_GameObject: {fileID: 1400027341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30abe709b5be2d041a5e1f8c9a2adcea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeTag: Enemy
+  isRandom: 1
 --- !u!114 &1400027344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,19 +594,6 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!114 &1400027351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1400027341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30abe709b5be2d041a5e1f8c9a2adcea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  changeTag: Enemy
-  isRandom: 0
 --- !u!114 &1400027352
 MonoBehaviour:
   m_ObjectHideFlags: 0

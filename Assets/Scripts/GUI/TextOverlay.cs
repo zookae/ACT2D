@@ -26,22 +26,36 @@ public class TextOverlay : MonoBehaviour {
 
     private GUIStyle textStyle;
     private GUIStyle boxStyle;
+    private Vector3 pixelPosition;
+    private Vector2 p;
 
-    void OnGUI() {
+    void Awake() {
+
         textStyle = new GUIStyle();
         textStyle.font = Resources.Load("fonts/Nunito-Regular") as Font;
         textStyle.fontSize = useFontSize;
         textStyle.alignment = TextAnchor.MiddleCenter;
         textStyle.normal.textColor = Color.black;
 
-        textSize = textStyle.CalcSize(new GUIContent(guiText)) + padding;
+        
 
-        boxStyle = new GUIStyle(GUI.skin.box);
-        boxStyle.normal.background = GUIUtils.MakeBlankTexture((int)textSize.x * 2, (int)textSize.y * 2, backgroundColor);
+        //boxStyle = new GUIStyle(GUI.skin.box);
+        //boxStyle.normal.background = GUIUtils.MakeBlankTexture((int)textSize.x * 2, (int)textSize.y * 2, backgroundColor);
 
         GUI.depth = guiDepth;
-        Vector3 pixelPosition = Camera.main.WorldToScreenPoint(this.gameObject.transform.position);
-        Vector2 p = new Vector2(pixelPosition.x, Screen.height - pixelPosition.y);
+
+    }
+
+    void OnGUI() {
+        textSize = textStyle.CalcSize(new GUIContent(guiText)) + padding;
+        if (boxStyle == null) {
+            boxStyle = new GUIStyle(GUI.skin.box);
+            boxStyle.normal.background = GUIUtils.MakeBlankTexture((int)textSize.x * 2, (int)textSize.y * 2, backgroundColor);
+            GUI.depth = guiDepth;
+        }
+        
+        pixelPosition = Camera.main.WorldToScreenPoint(this.gameObject.transform.position);
+        p = new Vector2(pixelPosition.x, Screen.height - pixelPosition.y);
         GUILayout.BeginArea(new Rect(p.x - (textSize.x / 2), p.y - (textSize.y / 2), textSize.x, textSize.y), boxStyle);
         GUILayout.Label(guiText, textStyle);
         GUILayout.EndArea();

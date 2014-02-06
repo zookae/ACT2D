@@ -134,6 +134,7 @@ public class LikertPool : MonoBehaviour {
     public GameObject spawnBin() {
         int prefabIdx = UnityEngine.Random.Range(0, binPrefabs.Length - 1);
 
+        Debug.Log("[LikertPool].spawnBin() called");
         GameObject spawned = GameObject.Instantiate(binPrefabs[prefabIdx]) as GameObject;
         Debug.Log("[LikertPool].spawnBin() adding to pool: " + spawned.name + " : " + spawned.GetInstanceID());
         return spawned;
@@ -144,6 +145,9 @@ public class LikertPool : MonoBehaviour {
     /// </summary>
     /// <returns></returns>
     public GameObject spawnBin( LikertScale likertS ) {
+
+        Debug.Log("[LikertPool].spawnBin(LikertScale) called");
+
         GameObject spawned = GameObject.Instantiate(binPrefabsLikert[likertS]) as GameObject;
         Debug.Log("[LikertPool].spawnBin(LikertScale) adding to pool: " + spawned.name + " : " + spawned.GetInstanceID());
         return spawned;
@@ -156,6 +160,7 @@ public class LikertPool : MonoBehaviour {
     public GameObject spawnCollect() {
         int prefabIdx = UnityEngine.Random.Range(0, collectPrefabs.Length - 1);
 
+        Debug.Log("[LikertPool].spawnCollect() called");
         GameObject spawned = GameObject.Instantiate(collectPrefabs[prefabIdx]) as GameObject;
         Debug.Log("[LikertPool].spawnCollect() adding to pool: " + spawned.name + " : " + spawned.GetInstanceID());
         return spawned;
@@ -166,6 +171,8 @@ public class LikertPool : MonoBehaviour {
     /// </summary>
     /// <returns></returns>
     public GameObject spawnCollect( LikertScale likertS ) {
+
+        Debug.Log("[LikertPool].spawnCollect(LikertScale) called");
         GameObject spawned = GameObject.Instantiate(collectPrefabsLikert[likertS]) as GameObject;
         Debug.Log("[LikertPool].spawnCollect(LikertScale) adding to pool: " + spawned.name + " : " + spawned.GetInstanceID());
         return spawned;
