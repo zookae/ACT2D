@@ -5,6 +5,8 @@ Temp/
 Obj/
 UnityGenerated/
 Library/
+# specific build folder
+Builds/
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #

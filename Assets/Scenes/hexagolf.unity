@@ -546,6 +546,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 548806486}
   - 212: {fileID: 548806487}
+  - 114: {fileID: 548806488}
   m_Layer: 0
   m_Name: background
   m_TagString: Untagged
@@ -587,6 +588,21 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: c97d31997b9064b4e8cdfb6949cd015d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &548806488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 548806485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 126327665f38e9c49b69086754ab74ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guiText: I am someone who...
+  useFontSize: 40
+  backgroundColor: {r: 1, g: 1, b: 1, a: 0}
+  guiDepth: 1
 --- !u!1001 &553576369
 Prefab:
   m_ObjectHideFlags: 0
